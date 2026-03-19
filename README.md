@@ -5,12 +5,20 @@ LLM-powered March Madness bracket predictions with personalized team analysis us
 ## Quick Start
 Get your Model Access Key at [DigitalOcean's Agent Platform](https://cloud.digitalocean.com/gen-ai/model-access-keys?i=760f86) and [Kaggle API Token](https://www.kaggle.com/settings) so you can use the CLI to parse the Kaggle March Madness data! 🚀
 
-1. **Set up your API key:**
+1. **Download the data:**
+   ```bash
+   # Create data directory and download from Kaggle
+   mkdir data
+   kaggle competitions download -c march-machine-learning-mania-2026 -p data
+   cd data && unzip march-machine-learning-mania-2026.zip && rm *.zip
+   ```
+
+2. **Set up your API key:**
    ```bash
    echo "MODEL_ACCESS_KEY=your-gradient-api-key" > .env
    ```
 
-2. **Run the predictor:**
+3. **Run the predictor:**
    ```bash
    ./env/bin/python3 predictor.py
    ```
